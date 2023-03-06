@@ -1,3 +1,16 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  background: darkblue;
+}
+
+.resetButton {
+  max-width: 12em;
+  margin: 24px;
+}
 .grid {
   display: flex;
   height: fit-content;

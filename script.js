@@ -1,6 +1,5 @@
 /* CREATES A GRID OF DIVS */
-var numberOfColumns = 16;
-var numberOfRows = 16;
+var squares = 16;
 const resetButton = document.querySelector(".resetButton");
 
 var grid = document.createElement("div");
@@ -8,10 +7,10 @@ grid.className = "grid";
 createGrid();
 
 function createGrid() {
-  for (var i = 0; i < numberOfColumns; ++i) {
+  for (var i = 0; i < squares; ++i) {
     var column = document.createElement("div");
     column.className = "column";
-    for (var j = 0; j < numberOfRows; ++j) {
+    for (var j = 0; j < squares; ++j) {
       var row = document.createElement("div");
       row.className = "row";
       column.appendChild(row);
@@ -33,9 +32,17 @@ resetButton.addEventListener("click", gridReset);
 
 /* FUNCTION FOR RESETTING GRID */
 function gridReset() {
-  let number = prompt("Please enter number of squares per side? (up to 100)");
-  numberOfColumns = number;
-  numberOfRows = number;
+  do {
+    var selection = parseInt(
+      window.prompt("Please enter a number from 1 to 100", ""),
+      10
+    );
+  } while (isNaN(selection) || selection > 100 || selection < 1);
+  while (grid.firstChild) {
+    grid.removeChild(grid.lastChild);
+  }
+
+  squares = selection;
 
   createGrid();
 }
