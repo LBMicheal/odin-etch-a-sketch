@@ -1,0 +1,25 @@
+.grid {
+  display: flex;
+  height: fit-content;
+  width: fit-content;
+}
+
+.column {
+  margin: 0;
+
+  flex: 1;
+}
+
+.row {
+  margin: 0;
+  height: 8px;
+  width: 8px;
+  background: gray;
+}
+
+.trail {
+  margin: 0;
+  height: 8px;
+  width: 8px;
+  background: black;
+}
